@@ -18,7 +18,7 @@ are adjacent to the same endpoint, the endpoint needs to be
 
 ## Exercise
 
-The main primary in this exercise is to implement an algorithm to
+The primary challenge in this exercise is to implement an algorithm to
 compute support positions for the raceway, and to specify which
 endpoints need to be reinforced.  All good code has associated unit
 tests, so there is some infrastructure for writing tests for the
@@ -37,4 +37,4 @@ Specifically, you should make changes to:
 Also, in `Raceway.h`, you may add additional data members to
 the `Raceway` class if you like.  Otherwise, keep the interfaces the
 same.  Make sure all the tests in `tests.cpp` pass (i.e. that the
-`supports`) executable runs without any assertions).
+`supports` executable runs without any assertions).
