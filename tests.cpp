@@ -1,3 +1,4 @@
+#include <cassert>
 #include <cmath>
 #include <map>
 #include <iostream>
@@ -12,12 +13,14 @@
 namespace
 {
 
+// Returns whether two numbers are close within an epsilon.
 bool
 close(double a, double b, double epsilon = 1e-4)
 {
     return std::fabs(a - b) < epsilon;
 }
 
+// Returns whether the distance between two points is within an epsilon.
 bool
 close(const Vector& a, const Vector& b, double epsilon = 1e-4)
 {
@@ -183,11 +186,11 @@ test3()
         assert(close(distance(supports[seg].front(), seg->start_pos()), 1.0));
         assert(close(distance(supports[seg].back(), seg->end_pos()), 1.0));
 
-        // check first internal
+        // check first internal support
         Vector p1(10, 0, 0);
         assert(close(supports[seg][1], p1));
 
-        // check second internal
+        // check second internal support
         Vector p2(19, 0, 0);
         assert(close(supports[seg][2], p2));
     }

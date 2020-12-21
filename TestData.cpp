@@ -1,3 +1,4 @@
+#include <cassert>
 #include <TestData.h>
 
 void

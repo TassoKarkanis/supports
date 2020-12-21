@@ -6,7 +6,9 @@
 void
 Raceway::add_endpoint(Endpoint_H endpoint)
 {
+    // segment should not be null
     assert(endpoint);
+    
     assert(!endpoint->reinforced()); // should be unreinforced initially
 
     assert(!"unimplemented");
