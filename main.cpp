@@ -1,8 +1,7 @@
 #include <cassert>
 #include <tests.h>
 
-int
-main()
+int main()
 {
     // Run three support computation tests.
     test1();

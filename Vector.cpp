@@ -18,26 +18,26 @@ Vector::Vector(double x, double y, double z)
 double
 Vector::length() const
 {
-    const Vector& a = *this;
+    const Vector &a = *this;
     return std::sqrt(a.dot(a));
 }
 
 double
-Vector::dot(const Vector& b) const
+Vector::dot(const Vector &b) const
 {
-    const Vector& a = *this;
-    return a.m_v[0]*b.m_v[0] + a.m_v[1]*b.m_v[1] + a.m_v[2]*b.m_v[2];
+    const Vector &a = *this;
+    return a.m_v[0] * b.m_v[0] + a.m_v[1] * b.m_v[1] + a.m_v[2] * b.m_v[2];
 }
 
 Vector
 Vector::normalized() const
 {
-    double a = 1.0/length();
-    return a*(*this);
+    double a = 1.0 / length();
+    return a * (*this);
 }
 
 Vector
-operator+(const Vector& a, const Vector& b)
+operator+(const Vector &a, const Vector &b)
 {
     return Vector(
         a.m_v[0] + b.m_v[0],
@@ -46,7 +46,7 @@ operator+(const Vector& a, const Vector& b)
 }
 
 Vector
-operator-(const Vector& a, const Vector& b)
+operator-(const Vector &a, const Vector &b)
 {
     return Vector(
         a.m_v[0] - b.m_v[0],
@@ -55,16 +55,16 @@ operator-(const Vector& a, const Vector& b)
 }
 
 Vector
-operator*(double a, const Vector&b)
+operator*(double a, const Vector &b)
 {
     return Vector(
-        a*b.m_v[0],
-        a*b.m_v[1],
-        a*b.m_v[2]);
+        a * b.m_v[0],
+        a * b.m_v[1],
+        a * b.m_v[2]);
 }
 
-std::ostream&
-operator<<(std::ostream& os, const Vector& a)
+std::ostream &
+operator<<(std::ostream &os, const Vector &a)
 {
     os << "("
        << a.m_v[0] << ", "
@@ -74,7 +74,7 @@ operator<<(std::ostream& os, const Vector& a)
 }
 
 double
-distance(const Vector& a, const Vector& b)
+distance(const Vector &a, const Vector &b)
 {
     return (a - b).length();
 }

@@ -13,25 +13,24 @@
 namespace
 {
 
-// Returns whether two numbers are close within an epsilon.
-bool
-close(double a, double b, double epsilon = 1e-4)
-{
-    return std::fabs(a - b) < epsilon;
-}
+    // Returns whether two numbers are close within an epsilon.
+    bool
+    close(double a, double b, double epsilon = 1e-4)
+    {
+        return std::fabs(a - b) < epsilon;
+    }
 
-// Returns whether the distance between two points is within an epsilon.
-bool
-close(const Vector& a, const Vector& b, double epsilon = 1e-4)
-{
-    double d = distance(a, b);
-    return close(d, 0, epsilon);
-}
+    // Returns whether the distance between two points is within an epsilon.
+    bool
+    close(const Vector &a, const Vector &b, double epsilon = 1e-4)
+    {
+        double d = distance(a, b);
+        return close(d, 0, epsilon);
+    }
 
-}
+} // namespace
 
-void
-test1()
+void test1()
 {
     TestData data = {
         // endpoints
@@ -43,9 +42,8 @@ test1()
         // segments
         {
             {"x", "a", "b"},
-        }
-    };
-    
+        }};
+
     Raceway raceway;
     TestData::NamedEndpoints endpoints;
     TestData::NamedSegments segments;
@@ -68,10 +66,12 @@ test1()
         assert(endpoints["a"]->reinforced() == false);
         assert(endpoints["b"]->reinforced() == false);
     }
+
+    // print success
+    std::cout << "Test 1 passed successfully!\n";
 }
 
-void
-test2()
+void test2()
 {
     TestData data = {
         // endpoints
@@ -87,9 +87,8 @@ test2()
             {"x", "a", "b"},
             {"y", "a", "c"},
             {"z", "a", "d"},
-        }
-    };
-    
+        }};
+
     Raceway raceway;
     TestData::NamedEndpoints endpoints;
     TestData::NamedSegments segments;
@@ -130,10 +129,12 @@ test2()
         assert(endpoints["c"]->reinforced() == false);
         assert(endpoints["d"]->reinforced() == false);
     }
+
+    // print success
+    std::cout << "Test 2 passed successfully!\n";
 }
 
-void
-test3()
+void test3()
 {
     TestData data = {
         // endpoints
@@ -149,9 +150,8 @@ test3()
             {"x", "a", "b"},
             {"y", "a", "c"},
             {"z", "a", "d"},
-        }
-    };
-    
+        }};
+
     Raceway raceway;
     TestData::NamedEndpoints endpoints;
     TestData::NamedSegments segments;
@@ -202,4 +202,7 @@ test3()
         assert(endpoints["c"]->reinforced() == false);
         assert(endpoints["d"]->reinforced() == false);
     }
+
+    // print success
+    std::cout << "Test 3 passed successfully!\n";
 }

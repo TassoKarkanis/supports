@@ -14,7 +14,7 @@ class Raceway
 public:
     using Segments = std::set<Segment_H>;
     using Endpoints = std::set<Endpoint_H>;
-    
+
     Raceway() = default;
 
     // Add an endpoint to the raceway.
@@ -27,7 +27,7 @@ public:
 
     // Get the endpoints and segments.
     const Endpoints endpoints() const;
-    const Segments& segments() const;
+    const Segments &segments() const;
 
     // Return the degree (in the graph theory sense) of an endpoint in
     // the raceway.  The degree is the number of segments in the
