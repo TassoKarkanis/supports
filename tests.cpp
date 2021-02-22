@@ -203,3 +203,53 @@ test3()
         assert(endpoints["d"]->reinforced() == false);
     }
 }
+
+
+// Added new testcase for self-testing
+void
+test4()
+{
+    TestData data = {
+        // endpoints
+        {
+            {"a", 0, 0, 0},
+            {"b", 16, 0, 0},
+        },
+
+        // segments
+        {
+            {"x", "a", "b"},
+        }
+    };
+
+    Raceway raceway;
+    TestData::NamedEndpoints endpoints;
+    TestData::NamedSegments segments;
+    data.populate(raceway, endpoints, segments);
+
+    // compute supports
+    Supports supports;
+    compute_supports(raceway, supports);
+
+    // check "x"
+    {
+        Segment_H x = segments["x"];
+        assert(supports[x].size() == 3);
+        assert(close(distance(supports[x].front(), x->start_pos()), 1.0));
+        assert(close(distance(supports[x].back(), x->end_pos()), 1.0));
+
+        // check first internal support
+        Vector p1(8, 0, 0);
+        assert(close(supports[x][1], p1));
+
+        // check second internal support
+        Vector p2(15, 0, 0);
+        assert(close(supports[x][2], p2));
+    }
+
+    // check reinforcement
+    {
+        assert(endpoints["a"]->reinforced() == false);
+        assert(endpoints["b"]->reinforced() == false);
+    }
+}
